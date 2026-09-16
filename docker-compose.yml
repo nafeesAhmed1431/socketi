@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+
+  socketi:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "6001:6001"
+    environment:
+      SOCKETI_APP_ID: app1
+      SOCKETI_APP_KEY: app1key
+      SOCKETI_APP_SECRET: app1secret
+      SOCKETI_ADAPTER: redis
+      SOCKETI_REDIS_URL: redis://redis:6379
+      NODE_ENV: production
+    depends_on:
+      - redis
+
+volumes:
+  redis-data:
+ 
