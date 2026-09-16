@@ -1,0 +1,21 @@
+{
+  "name": "socketi",
+  "version": "1.0.0",
+  "description": "Pusher-protocol compatible WebSocket server",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node api.js && node src/server.js",
+    "dev": "node api.js && node --watch src/server.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1",
+    "pino": "^9.4.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^11.2.2"
+  }
+}
